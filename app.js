@@ -96,11 +96,11 @@ let selectedEle;
 rowBoxes.forEach((box) => {
   box.addEventListener("click", function make(e) {
     if (!selectedEle) {
-      // box.classList.toggle("margin_bottom");
+      box.classList.toggle("margin_bottom");
       selectedEle = box;
       console.log(selectedEle);
     } else {
-      // selectedEle.classList.toggle("margin_bottom");
+      selectedEle.classList.toggle("margin_bottom");
       if (box == selectedEle) {
         selectedEle = "";
         // selectedEle.classList.remove("margin_bottom");
