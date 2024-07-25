@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Color Sort</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@100;300;400;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="nav">
+      <div class="input_name">
+        <div class="input_fild">
+          <input type="text" id="nickname" placeholder="Enter Nick Name" />
+          <button onclick="setName()">Submit</button>
+        </div>
+      </div>
+      <div class="nav_container">
+        <div class="name"></div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="container_body">
+
+        <div class="half_row">
+          <div class="row_1 row arr_1"></div>
+          <div class="row_2 row arr_2"></div>
+          <div class="row_3 row arr_3"></div>
+        </div>
+        <div class="half_row">
+          <div class="row_4 row arr_4"></div>
+          <div class="row_5 row arr_5"></div>
+        </div>
+        <button onclick="randomColor()" class="restart">Restart</button>
+      </div>
+    </div>
+    <script src="./app.js"></script>
+  </body>
+</html>
