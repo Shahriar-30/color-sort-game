@@ -7,6 +7,13 @@ let row_4 = document.querySelector(".row_4");
 let row_5 = document.querySelector(".row_5");
 let nickName = document.querySelector(".name");
 
+let point = document.querySelector(".point");
+let winBox = document.querySelector(".winBox");
+
+let storeBTN = document.querySelector(".store");
+let store = document.querySelector(".store_body");
+let storeItem;
+
 // array with colors
 let arr_1;
 let arr_2;
@@ -14,17 +21,93 @@ let arr_3;
 let arr_4;
 let arr_5;
 
-let validator = ()=> { 
+// color json
+let colorJson = [
+  {
+    id: 1,
+    color: "pink",
+  },
+  {
+    id: 2,
+    color: "white",
+  },
+];
+
+function getLocal(name) {
+  return localStorage.getItem(name);
+}
+
+function setLocal(name, value) {
+  return localStorage.setItem(name, value);
+}
+
+function toggle(ele) {
+  ele.classList.toggle("hidden");
+}
+
+storeBTN.addEventListener("click", () => {
+  toggle(store);
+});
+
+colorJson.map((e) => {
+  let div = document.createElement("div");
+  div.classList = `store_item ${e.color}`;
+  div.style.backgroundColor = e.color;
+  store.appendChild(div);
+  storeItem = document.querySelectorAll(".store_item");
+});
+
+storeItem.forEach((e)=> {
+  e.addEventListener("click", ()=> {
+    
+  })
+})
+
+function checkBgValue() {
+  let colorValue;
+  colorValue = getLocal("bg");
+  if (!colorValue) {
+    setLocal("bg", colorJson[0].color);
+    colorValue = getLocal("bg");
+  }
+  document.body.style.backgroundColor = colorValue;
+}
+checkBgValue();
+
+function checkPointValue() {
+  let pointValue;
+  pointValue = getLocal("point");
+  if (!pointValue) {
+    setLocal("point", 0);
+    pointValue = getLocal("point");
+  }
+  point.innerHTML = pointValue;
+}
+checkPointValue();
+
+function setName() {
+  let value = document.querySelector("#nickname").value;
+  if (!value) {
+    alert("Enter Your Nick Name To Continue");
+  } else {
+    localStorage.setItem("name", value);
+    let input_name = document.querySelector(".input_name");
+    input_name.classList.add("hidden");
+    validator();
+  }
+}
+
+let validator = () => {
   let data = localStorage.getItem("name");
   let input_name = document.querySelector(".input_name");
   if (!data) {
-    input_name.classList.remove("hidden")
+    input_name.classList.remove("hidden");
   } else {
     input_name.classList.add("hidden");
-    nickName.innerHTML = data
+    nickName.innerHTML = data;
   }
-}
-validator()
+};
+validator();
 
 function allLog() {
   row_1.innerHTML = "";
@@ -76,6 +159,12 @@ function randomColor() {
 randomColor();
 allLog();
 
+let removeWinBox = () => {
+  winBox.classList.add("hidden");
+  randomColor();
+  allLog();
+};
+
 function arraysEqual(arr1, arr2) {
   if (arr1.length !== arr2.length) return false;
   for (let i = 0; i < arr1.length; i++) {
@@ -91,7 +180,6 @@ let patterns = [
 ];
 
 let selectedEle;
-
 
 rowBoxes.forEach((box) => {
   box.addEventListener("click", function make(e) {
@@ -137,9 +225,13 @@ rowBoxes.forEach((box) => {
           }
 
           if (matchCount >= 3) {
-            console.log(matchCount)
             setTimeout(() => {
-              alert("match Win");
+              winBox.classList.remove("hidden");
+              let point = getLocal("point");
+              let calculate = Number(point) + 1;
+              setLocal("point", calculate);
+              checkPointValue();
+              console.log("done");
             }, 500);
           }
         }
@@ -148,16 +240,3 @@ rowBoxes.forEach((box) => {
     allLog();
   });
 });
-
-
-function setName() {
-  let value = document.querySelector("#nickname").value;
-  if (!value) {
-    alert("Enter Your Nick Name To Continue")
-  } else {    
-    localStorage.setItem("name", value);
-    let input_name = document.querySelector(".input_name");
-    input_name.classList.add("hidden")
-    validator()
-  }
-}
