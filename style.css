@@ -9,9 +9,12 @@
   height: 50px;
   width: 50px;
   background: #fff;
-  border: 2px solid #000;
 border-radius: 10px;
 cursor: pointer;
+position: relative;
+display: flex;
+align-items: center;
+justify-content: center;
 }
 .pointBox{
   display: flex;
@@ -60,6 +63,18 @@ cursor: pointer;
   align-items: flex-start;
   justify-content: flex-start;
   padding: 10px;
+}
+.buy_item{
+  padding: 5px 30px;
+  border: none;
+  border-radius:10px;
+  font-weight: 500;
+  cursor: pointer;
+  font-size: 20px;
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
 }
 .winBox{
   background-color: #0000005c;
@@ -196,6 +211,9 @@ cursor: pointer;
 .hidden{
   visibility: hidden;
 }
+.border{
+  border: 2px solid #000;
+}
 .red {
   background-color: red;
 }
@@ -204,4 +222,7 @@ cursor: pointer;
 }
 .yellow{
   background-color: yellow;
+}
+.pink{
+  background-color: pink;
 }

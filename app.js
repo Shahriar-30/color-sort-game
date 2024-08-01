@@ -12,7 +12,9 @@ let winBox = document.querySelector(".winBox");
 
 let storeBTN = document.querySelector(".store");
 let store = document.querySelector(".store_body");
-let storeItem;
+
+let bgc = document.querySelectorAll(".bgc");
+let storeItem = document.querySelectorAll(".store_item");
 
 // array with colors
 let arr_1;
@@ -49,26 +51,92 @@ storeBTN.addEventListener("click", () => {
   toggle(store);
 });
 
-colorJson.map((e) => {
-  let div = document.createElement("div");
-  div.classList = `store_item ${e.color}`;
-  div.style.backgroundColor = e.color;
-  store.appendChild(div);
-  storeItem = document.querySelectorAll(".store_item");
-});
+let beforeLabel;
 
-storeItem.forEach((e)=> {
-  e.addEventListener("click", ()=> {
-    
-  })
-})
+bgc.forEach((toggle) => {
+  toggle.addEventListener("change", () => {
+    const SelectedLabel = document.querySelector(`label[for="${toggle.id}"]`);
+    const selectedLabel = SelectedLabel.querySelector(".store_item");
+    const lock = selectedLabel.querySelector(".lock");
+    const use = selectedLabel.querySelector(".use");
+
+    const buyBtn = document.querySelector(".buy_item");
+
+    if (!beforeLabel) {
+      beforeLabel = selectedLabel;
+    }
+    if (beforeLabel == selectedLabel) {
+      selectedLabel.classList.add("border");
+    } else {
+      beforeLabel.classList.remove("border");
+      selectedLabel.classList.add("border");
+      beforeLabel = selectedLabel;
+    }
+
+    if (lock) {
+      let point = getLocal("point");
+      if (point >= 5) {
+        buyBtn.innerHTML = "Buy Now";
+
+        buyBtn.addEventListener("click", () => {
+          if ((lock.classList[0] = "lock")) {
+            lock.classList.remove("lock");
+            lock.classList.add("use");
+            lock.innerHTML = "";
+            let colors = JSON.parse(getLocal("colors"));
+            let newColor = toggle.value;
+            colors.push(newColor);
+            setLocal("colors", JSON.stringify(colors));
+
+            setLocal("point", point - 5);
+            checkPointValue();
+
+            buyBtn.innerHTML = "In Use";
+        window.location.reload();
+
+          }
+          console.log(lock.classList[0]);
+        });
+      } else {
+        buyBtn.innerHTML = `Need More ${5 - point}💰`;
+      }
+      console.log(lock, toggle, selectedLabel);
+    }
+    if (use) {
+      let bg = getLocal("bg");
+      if (toggle.value == bg) {
+        buyBtn.innerHTML = "Already In Use";
+      }else{
+        buyBtn.innerHTML = "Use It";
+      }
+      buyBtn.addEventListener("click", ()=> {
+        let selectedColor = (toggle.value);
+        setLocal("bg", selectedColor);
+        window.location.reload();
+      })
+    }
+  });
+});
 
 function checkBgValue() {
   let colorValue;
   colorValue = getLocal("bg");
   if (!colorValue) {
-    setLocal("bg", colorJson[0].color);
+    setLocal("bg", "pink");
+    setLocal("colors", JSON.stringify(["pink"]));
     colorValue = getLocal("bg");
+  } else {
+    colorValue = getLocal("bg");
+    let colors = JSON.parse(getLocal("colors"));
+    colors.map((e) => {
+      let colorDiv = document.querySelector(`.${e}`);
+      let lockDiv = colorDiv.querySelector(".lock");
+      if (lockDiv) {
+        lockDiv.classList.remove("lock");
+        lockDiv.classList.add("use");
+        lockDiv.innerHTML = "";
+      }
+    });
   }
   document.body.style.backgroundColor = colorValue;
 }
