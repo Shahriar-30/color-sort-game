@@ -92,8 +92,7 @@ bgc.forEach((toggle) => {
             checkPointValue();
 
             buyBtn.innerHTML = "In Use";
-        window.location.reload();
-
+            window.location.reload();
           }
           console.log(lock.classList[0]);
         });
@@ -106,14 +105,14 @@ bgc.forEach((toggle) => {
       let bg = getLocal("bg");
       if (toggle.value == bg) {
         buyBtn.innerHTML = "Already In Use";
-      }else{
+      } else {
         buyBtn.innerHTML = "Use It";
       }
-      buyBtn.addEventListener("click", ()=> {
-        let selectedColor = (toggle.value);
+      buyBtn.addEventListener("click", () => {
+        let selectedColor = toggle.value;
         setLocal("bg", selectedColor);
         window.location.reload();
-      })
+      });
     }
   });
 });
@@ -216,11 +215,73 @@ function allLog() {
 }
 
 function randomColor() {
-  arr_1 = ["green", "red"];
-  arr_2 = ["red", "yellow"];
-  arr_3 = ["red", "green"];
-  arr_4 = ["yellow", "green"];
-  arr_5 = ["yellow"];
+  let randomNum = Math.floor(Math.random() * (10 - 1 + 1)) + 1;
+
+  switch (randomNum) {
+    case 1:
+        arr_1 = ["green", "red"];
+        arr_2 = ["red", "yellow"];
+        arr_3 = ["yellow", "green"];
+        arr_4 = ["green", "red"];
+        arr_5 = ["yellow"];
+        break;
+    case 2:
+        arr_1 = ["red", "yellow"];
+        arr_2 = ["green", "red"];
+        arr_3 = ["yellow", "green"];
+        arr_4 = ["red", "yellow"];
+        arr_5 = ["green"];
+        break;
+    case 3:
+        arr_1 = ["yellow", "green"];
+        arr_2 = ["red", "yellow"];
+        arr_3 = ["green", "red"];
+        arr_4 = ["yellow", "green"];
+        arr_5 = ["red"];
+        break;
+    case 4:
+        arr_1 = ["green", "yellow"];
+        arr_2 = ["red", "green"];
+        arr_3 = ["yellow", "red"];
+        arr_4 = ["green", "yellow"];
+        arr_5 = ["red"];
+        break;
+    case 5:
+        arr_1 = ["red", "green"];
+        arr_2 = ["yellow", "red"];
+        arr_3 = ["green", "yellow"];
+        arr_4 = ["red", "yellow"];
+        arr_5 = ["green"];
+        break;
+    case 6:
+        arr_1 = ["yellow", "red"];
+        arr_2 = ["green", "yellow"];
+        arr_3 = ["red", "green"];
+        arr_4 = ["yellow", "green"];
+        arr_5 = ["red"];
+        break;
+    case 7:
+        arr_1 = ["green", "yellow"];
+        arr_2 = ["red", "green"];
+        arr_3 = ["yellow", "red"];
+        arr_4 = ["green", "red"];
+        arr_5 = ["yellow"];
+        break;
+    case 8:
+        arr_1 = ["red", "green"];
+        arr_2 = ["yellow", "red"];
+        arr_3 = ["green", "yellow"];
+        arr_4 = ["red", "yellow"];
+        arr_5 = ["green"];
+        break;
+    default:
+      arr_1 = ["red", "green"];
+      arr_2 = ["yellow", "red"];
+      arr_3 = ["green", "red"];
+      arr_4 = ["green", "yellow"];
+      arr_5 = ["yellow"];
+      break;
+}
   allLog();
 }
 
