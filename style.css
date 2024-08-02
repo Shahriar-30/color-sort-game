@@ -65,7 +65,7 @@ justify-content: center;
   padding: 10px;
 }
 .buy_item{
-  padding: 5px 30px;
+  padding: 5px 10px;
   border: none;
   border-radius:10px;
   font-weight: 500;
@@ -232,4 +232,16 @@ box-shadow: 5px 6px 12px -1px rgba(0,0,0,0.75);
 }
 .pink{
   background-color: pink;
+}
+
+
+@media (min-width: 320px) and (max-width: 420px) {
+  .store_body{
+    width: 80%;
+    gap: 0;
+  }
+  .store{
+    font-size: 25px;
+    margin-left: 5px;
+  }
 }
