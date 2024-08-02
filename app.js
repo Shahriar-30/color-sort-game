@@ -215,65 +215,121 @@ function allLog() {
 }
 
 function randomColor() {
-  let randomNum = Math.floor(Math.random() * (10 - 1 + 1)) + 1;
+  let randomNum = Math.floor(Math.random() * (16 - 1 + 1)) + 1;
 
   switch (randomNum) {
     case 1:
-        arr_1 = ["green", "red"];
-        arr_2 = ["red", "yellow"];
-        arr_3 = ["yellow", "green"];
-        arr_4 = ["green", "red"];
-        arr_5 = ["yellow"];
-        break;
+      arr_1 = ["green", "red"];
+      arr_2 = ["red", "yellow"];
+      arr_3 = ["yellow", "green"];
+      arr_4 = ["green", "red"];
+      arr_5 = ["yellow"];
+      break;
     case 2:
-        arr_1 = ["red", "yellow"];
-        arr_2 = ["green", "red"];
-        arr_3 = ["yellow", "green"];
-        arr_4 = ["red", "yellow"];
-        arr_5 = ["green"];
-        break;
+      arr_1 = ["red", "yellow"];
+      arr_2 = ["green", "red"];
+      arr_3 = ["yellow", "green"];
+      arr_4 = ["red", "yellow"];
+      arr_5 = ["green"];
+      break;
     case 3:
-        arr_1 = ["yellow", "green"];
-        arr_2 = ["red", "yellow"];
-        arr_3 = ["green", "red"];
-        arr_4 = ["yellow", "green"];
-        arr_5 = ["red"];
-        break;
+      arr_1 = ["yellow", "green"];
+      arr_2 = ["red", "yellow"];
+      arr_3 = ["green", "red"];
+      arr_4 = ["yellow", "green"];
+      arr_5 = ["red"];
+      break;
     case 4:
-        arr_1 = ["green", "yellow"];
-        arr_2 = ["red", "green"];
-        arr_3 = ["yellow", "red"];
-        arr_4 = ["green", "yellow"];
-        arr_5 = ["red"];
-        break;
+      arr_1 = ["green", "yellow"];
+      arr_2 = ["red", "green"];
+      arr_3 = ["yellow", "red"];
+      arr_4 = ["green", "yellow"];
+      arr_5 = ["red"];
+      break;
     case 5:
-        arr_1 = ["red", "green"];
-        arr_2 = ["yellow", "red"];
-        arr_3 = ["green", "yellow"];
-        arr_4 = ["red", "yellow"];
-        arr_5 = ["green"];
-        break;
+      arr_1 = ["red", "green"];
+      arr_2 = ["yellow", "red"];
+      arr_3 = ["green", "yellow"];
+      arr_4 = ["red", "yellow"];
+      arr_5 = ["green"];
+      break;
     case 6:
-        arr_1 = ["yellow", "red"];
-        arr_2 = ["green", "yellow"];
-        arr_3 = ["red", "green"];
-        arr_4 = ["yellow", "green"];
-        arr_5 = ["red"];
-        break;
+      arr_1 = ["yellow", "red"];
+      arr_2 = ["green", "yellow"];
+      arr_3 = ["red", "green"];
+      arr_4 = ["yellow", "green"];
+      arr_5 = ["red"];
+      break;
     case 7:
-        arr_1 = ["green", "yellow"];
-        arr_2 = ["red", "green"];
-        arr_3 = ["yellow", "red"];
-        arr_4 = ["green", "red"];
-        arr_5 = ["yellow"];
-        break;
+      arr_1 = ["green", "yellow"];
+      arr_2 = ["red", "green"];
+      arr_3 = ["yellow", "red"];
+      arr_4 = ["green", "red"];
+      arr_5 = ["yellow"];
+      break;
     case 8:
-        arr_1 = ["red", "green"];
-        arr_2 = ["yellow", "red"];
-        arr_3 = ["green", "yellow"];
-        arr_4 = ["red", "yellow"];
-        arr_5 = ["green"];
-        break;
+      arr_1 = ["red", "green"];
+      arr_2 = ["yellow", "red"];
+      arr_3 = ["green", "yellow"];
+      arr_4 = ["red", "yellow"];
+      arr_5 = ["green"];
+      break;
+    case 9:
+      arr_1 = ["green", "red"];
+      arr_2 = ["red", "yellow"];
+      arr_3 = ["yellow", "green"];
+      arr_4 = ["green", "yellow"];
+      arr_5 = ["red"];
+      break;
+    case 10:
+      arr_1 = ["green"];
+      arr_2 = ["red", "yellow"];
+      arr_3 = ["yellow", "green"];
+      arr_4 = ["yellow", "red"];
+      arr_5 = ["green", "red"];
+      break;
+    case 11:
+      arr_1 = ["yellow", "green"];
+      arr_2 = ["red", "green"];
+      arr_3 = ["green", "yellow"];
+      arr_4 = ["red"];
+      arr_5 = ["red", "yellow"];
+      break;
+    case 12:
+      arr_1 = ["green", "yellow"];
+      arr_2 = ["red"];
+      arr_3 = ["green", "red"];
+      arr_4 = ["yellow", "green"];
+      arr_5 = ["red", "yellow"];
+      break;
+    case 13:
+      arr_1 = ["green", "red"];
+      arr_2 = ["yellow", "red"];
+      arr_3 = ["green", "yellow"];
+      arr_4 = ["green"];
+      arr_5 = ["red", "yellow"];
+      break;
+    case 14:
+      arr_1 = ["red", "green"];
+      arr_2 = ["yellow", "green"];
+      arr_3 = ["yellow"];
+      arr_4 = ["green", "red"];
+      arr_5 = ["red", "yellow"];
+      break;
+    case 15:
+      arr_1 = ["yellow", "green"];
+      arr_2 = ["red"];
+      arr_3 = ["green", "red"];
+      arr_4 = ["red", "yellow"];
+      arr_5 = ["green", "yellow"];
+      break;
+    case 16:
+      arr_1 = ["yellow"];
+      arr_2 = ["green", "red"];
+      arr_3 = ["yellow", "green"];
+      arr_4 = ["green", "red"];
+      arr_5 = ["red", "yellow"];
+      break;
     default:
       arr_1 = ["red", "green"];
       arr_2 = ["yellow", "red"];
@@ -281,7 +337,7 @@ function randomColor() {
       arr_4 = ["green", "yellow"];
       arr_5 = ["yellow"];
       break;
-}
+  }
   allLog();
 }
 
