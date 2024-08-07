@@ -12,9 +12,13 @@ let winBox = document.querySelector(".winBox");
 
 let storeBTN = document.querySelector(".store");
 let store = document.querySelector(".store_body");
+let store_close_btn = document.querySelector(".close_store");
 
 let bgc = document.querySelectorAll(".bgc");
 let storeItem = document.querySelectorAll(".store_item");
+
+let close_tip_btn = document.querySelector(".close_tip");
+let close_tip = document.querySelector(".wrong_input_container");
 
 // array with colors
 let arr_1;
@@ -50,6 +54,12 @@ function toggle(ele) {
 storeBTN.addEventListener("click", () => {
   toggle(store);
 });
+store_close_btn.addEventListener("click", ()=> {
+  toggle(store);
+})
+close_tip_btn.addEventListener("click", ()=> {
+  toggle(close_tip)
+})
 
 let beforeLabel;
 
@@ -87,11 +97,11 @@ bgc.forEach((toggle) => {
             let newColor = toggle.value;
             colors.push(newColor);
             setLocal("colors", JSON.stringify(colors));
-
+            setLocal("bg", newColor);
             setLocal("point", point - 5);
             checkPointValue();
 
-            buyBtn.innerHTML = "In Use";
+            buyBtn.innerHTML = "Use It";
             window.location.reload();
           }
           console.log(lock.classList[0]);
@@ -115,6 +125,7 @@ bgc.forEach((toggle) => {
       });
     }
   });
+
 });
 
 function checkBgValue() {
@@ -152,6 +163,8 @@ function checkPointValue() {
 }
 checkPointValue();
 
+
+
 function setName() {
   let value = document.querySelector("#nickname").value;
   if (!value) {
@@ -160,6 +173,7 @@ function setName() {
     localStorage.setItem("name", value);
     let input_name = document.querySelector(".input_name");
     input_name.classList.add("hidden");
+
     validator();
   }
 }
@@ -371,7 +385,6 @@ rowBoxes.forEach((box) => {
     if (!selectedEle) {
       box.classList.toggle("margin_bottom");
       selectedEle = box;
-      console.log(selectedEle);
     } else {
       selectedEle.classList.toggle("margin_bottom");
       if (box == selectedEle) {
@@ -384,7 +397,7 @@ rowBoxes.forEach((box) => {
         let arrayChange = box.classList[2];
 
         if (eval(arrayChange).length >= 3) {
-          alert("What are you doing!");
+          toggle(close_tip)
         } else {
           let getValue = eval(arraySelected)[eval(arraySelected).length - 1];
           let changeValue = eval(arrayChange)[eval(arrayChange).length - 1];
@@ -393,7 +406,7 @@ rowBoxes.forEach((box) => {
             eval(arraySelected).pop();
             eval(arrayChange).push(getValue);
           } else {
-            alert("What are you doing!");
+          toggle(close_tip)
           }
           selectedEle = "";
 
