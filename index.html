@@ -48,21 +48,21 @@
 
         <input type="radio"  name="bg" id="pink" class="bgc hidden" value="pink" />
         <label for="pink">
-          <div class="store_item pink ">
+          <div class="store_item pink " onclick="setStoreSelectAudio.play()">
             <div class="use"></div>
           </div>
         </label>
 
         <input type="radio" name="bg" id="yellow" class="bgc hidden" value="yellow" />
         <label for="yellow">
-          <div class="store_item yellow">
+          <div class="store_item yellow" onclick="setStoreSelectAudio.play()">
             <div class="lock">5💰</div>
           </div>
         </label>
 
         <input type="radio" name="bg" id="green" class="bgc hidden" value="green" />
         <label for="green">
-          <div class="store_item green">
+          <div class="store_item green" onclick="setStoreSelectAudio.play()">
             <div class="lock">5💰</div>
           </div>
         </label>
@@ -74,15 +74,15 @@
 
       <div class="container_body">
         <div class="half_row">
-          <div class="row_1 row arr_1"></div>
-          <div class="row_2 row arr_2"></div>
-          <div class="row_3 row arr_3"></div>
+          <div class="row_1 row arr_1" onclick="setGlassAudio.play()"></div>
+          <div class="row_2 row arr_2"onclick="setGlassAudio.play()"></div>
+          <div class="row_3 row arr_3" onclick="setGlassAudio.play()"></div>
         </div>
         <div class="half_row">
-          <div class="row_4 row arr_4"></div>
-          <div class="row_5 row arr_5"></div>
+          <div class="row_4 row arr_4" onclick="setGlassAudio.play()"></div>
+          <div class="row_5 row arr_5" onclick="setGlassAudio.play()"></div>
         </div>
-        <button onclick="randomColor()" class="restart">Restart</button>
+        <button onclick="randomColor(); setMouseClickAudio.play();" class="restart">Restart</button>
       </div>
     </div>
     <script src="./app.js"></script>

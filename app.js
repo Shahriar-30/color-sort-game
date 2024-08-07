@@ -20,6 +20,16 @@ let storeItem = document.querySelectorAll(".store_item");
 let close_tip_btn = document.querySelector(".close_tip");
 let close_tip = document.querySelector(".wrong_input_container");
 
+// audio
+let setNameAudio = new Audio("./audio/ThankYou.mp3");
+let setGlassAudio = new Audio("./audio/glass.mp3");
+let setErrorAudio = new Audio("./audio/gameOver.mp3");
+let setWinnerAudio = new Audio("./audio/winGame.mp3");
+let setPopUpAudio = new Audio("./audio/popUp.mp3");
+let setBuyStoreAudio = new Audio("./audio/buyStore.mp3");
+let setStoreSelectAudio = new Audio("./audio/storeSelect.mp3");
+let setMouseClickAudio = new Audio("./audio/mouseClick.mp3");
+
 // array with colors
 let arr_1;
 let arr_2;
@@ -49,6 +59,7 @@ function setLocal(name, value) {
 
 function toggle(ele) {
   ele.classList.toggle("hidden");
+  setPopUpAudio.play()
 }
 
 storeBTN.addEventListener("click", () => {
@@ -99,10 +110,13 @@ bgc.forEach((toggle) => {
             setLocal("colors", JSON.stringify(colors));
             setLocal("bg", newColor);
             setLocal("point", point - 5);
+            setBuyStoreAudio.play();
             checkPointValue();
 
             buyBtn.innerHTML = "Use It";
-            window.location.reload();
+            setTimeout(() => {
+              window.location.reload();
+            }, 1000);
           }
           console.log(lock.classList[0]);
         });
@@ -173,7 +187,7 @@ function setName() {
     localStorage.setItem("name", value);
     let input_name = document.querySelector(".input_name");
     input_name.classList.add("hidden");
-
+    setNameAudio.play();
     validator();
   }
 }
@@ -398,6 +412,8 @@ rowBoxes.forEach((box) => {
 
         if (eval(arrayChange).length >= 3) {
           toggle(close_tip)
+          setPopUpAudio.pause();
+          setErrorAudio.play();
         } else {
           let getValue = eval(arraySelected)[eval(arraySelected).length - 1];
           let changeValue = eval(arrayChange)[eval(arrayChange).length - 1];
@@ -407,6 +423,8 @@ rowBoxes.forEach((box) => {
             eval(arrayChange).push(getValue);
           } else {
           toggle(close_tip)
+          setPopUpAudio.pause();
+          setErrorAudio.play();
           }
           selectedEle = "";
 
@@ -429,7 +447,7 @@ rowBoxes.forEach((box) => {
               let calculate = Number(point) + 1;
               setLocal("point", calculate);
               checkPointValue();
-              console.log("done");
+              setWinnerAudio.play();
             }, 500);
           }
         }
